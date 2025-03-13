@@ -22,7 +22,6 @@ export class UserController {
             const user = await this.loginUseCase.execute(req.body);
             return res.status(200).json(user);
         } catch(e) {
-            console.log("user")
             return res.status(400).json({ message: e.message });
         }
     }

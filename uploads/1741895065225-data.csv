@@ -1,0 +1,4 @@
+cpf;data;desc;valorp;valor;status
+123.123.123-12;10/10/2022;Venda do produto X;10;10000;Aprovado
+123.123.123-12;10/10/2022;Venda do produto Y;10;10000;Reprovado
+123.123.123-12;10/10/2022;Venda do produto Z;10;10000;Pendente

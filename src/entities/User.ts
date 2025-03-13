@@ -1,5 +1,5 @@
 export class User {
-    id?: number;
+    readonly id?: number;
     name: string;
     cpf: string;
     email: string;
@@ -10,6 +10,7 @@ export class User {
       Object.assign(this, props);
       if (!id) {
         this.ballance = 0;
+        this.id = id
       }
     }
   }
