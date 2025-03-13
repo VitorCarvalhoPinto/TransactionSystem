@@ -1,6 +1,8 @@
 import { models, UserModel } from "../../shared/models";
 import { User } from "../../entities/User";
 import { IUserRepository } from "../interfaces/IUserRepository";
+import { IAuthenticateUserDTO } from "../../useCases/UserUseCases/dtos/IAuthenticateUserDTO";
+import { IAuthenticateUserResponseDTO } from "../../useCases/UserUseCases/dtos/IAuthenticateUserResponseDTO";
 
 export class UserRepositorySequelize implements IUserRepository{
     async findByEmail(email: string): Promise<User> {

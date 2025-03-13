@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { UserRouter } from "./routes/UserRoutes";
 import { TransactionRouter } from "./routes/TransactionRoutes";
+import { authMiddleware } from "./middlewares/AuthMiddleware";
 
 const app = express()
 

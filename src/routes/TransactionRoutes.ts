@@ -5,6 +5,7 @@ import { UpdateTransactionUseCase } from "../useCases/TransactionUseCases/Update
 import { TransactionController } from "../useCases/TransactionUseCases/controllers/TransactionController";
 import { GetAllTransactionUseCase } from "../useCases/TransactionUseCases/GetAllTransactionUseCase";
 import { GetByUserTransactionUseCase } from "../useCases/TransactionUseCases/GetByUserTransactionUseCase";
+import { authMiddleware } from "../middlewares/AuthMiddleware";
 
 const TransactionRouter = Router();
 
@@ -25,19 +26,19 @@ const transactionController = new TransactionController(
     getByUserTransactionUseCase
 );
 
-TransactionRouter.post("/create", (req, res) => {
+TransactionRouter.post("/create", authMiddleware, (req, res) => {
     transactionController.create(req, res);
 });
 
-TransactionRouter.put("/update/:id", (req, res) => {
+TransactionRouter.put("/update/:id", authMiddleware, (req, res) => {
     transactionController.updateStatus(req, res);
 });
 
-TransactionRouter.get("/all", (req, res) => {
+TransactionRouter.get("/all", authMiddleware, (req, res) => {
     transactionController.getAll(req, res);
 });
 
-TransactionRouter.get("/user/:id_user", (req, res) => {
+TransactionRouter.get("/user/:id_user", authMiddleware, (req, res) => {
     transactionController.getByUser(req, res);
 });
 

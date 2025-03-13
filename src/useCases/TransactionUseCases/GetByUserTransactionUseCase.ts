@@ -7,7 +7,7 @@ export class GetByUserTransactionUseCase {
     constructor(private transactionRepository: ITransactionRepository) {}
 
     async execute(id_user: number, filters: ITransactionFiltersDTO) {
-        const transaction = this.transactionRepository.getByUser(id_user, filters);
+        const transaction = await this.transactionRepository.getByUser(id_user, filters);
         return TransactionMapper.toDTOList(transaction as unknown as TransactionModel[]);
     }
 }
