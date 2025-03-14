@@ -24,3 +24,5 @@ yarn sequelize db:drop
 ```sh
 yarn dev
 ```
+
+##### Necessário MySql instalado na máquina e rodando.
