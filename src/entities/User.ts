@@ -5,6 +5,7 @@ export class User {
     email: string;
     password: string;
     ballance: number;
+    adm: boolean;
   
     constructor(props: Omit<User, "id">, id?: number) {
       Object.assign(this, props);

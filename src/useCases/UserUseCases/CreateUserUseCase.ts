@@ -18,7 +18,6 @@ export class CreateUserUseCase {
 
         const passwordHash = await bcrypt.hash(data.password, 10);
         const user = new User({...data, password: passwordHash});
-        
         return await this.userRepository.save(user);
     }
 }

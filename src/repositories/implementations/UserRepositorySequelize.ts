@@ -27,7 +27,8 @@ export class UserRepositorySequelize implements IUserRepository{
             cpf: newUser.cpf, 
             email: newUser.email, 
             password: newUser.password, 
-            ballance: newUser.ballance
+            ballance: newUser.ballance,
+            adm: newUser.adm
         });
     }
 }

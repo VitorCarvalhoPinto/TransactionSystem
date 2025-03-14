@@ -10,14 +10,16 @@ export class UserModel extends Model {
     email: string;
     password: string;
     ballance: number;
+    adm: boolean;
 }
 
 UserModel.init({
-    name: { type: DataTypes.STRING, unique: 'compositeIndex' },
+    name: { type: DataTypes.STRING, allowNull: false },
     cpf: { type: DataTypes.STRING, unique: 'compositeIndex' },
-    email: { type: DataTypes.STRING, allowNull: false},
+    email: { type: DataTypes.STRING, unique: 'compositeIndex', allowNull: false},
     password: { type: DataTypes.STRING, allowNull: false },
     ballance: { type: DataTypes.DECIMAL, allowNull: false },
+    adm: { type: DataTypes.BOOLEAN, allowNull: false }
   }, { 
     sequelize, 
     modelName: 'User', 

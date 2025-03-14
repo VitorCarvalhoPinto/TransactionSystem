@@ -23,6 +23,9 @@ module.exports = {
       },
       ballance: {
         type: Sequelize.DECIMAL
+      },
+      adm: {
+        type: Sequelize.BOOLEAN
       }
     });
   },
