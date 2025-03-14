@@ -44,11 +44,12 @@ export class TransactionRepositorySequelize implements ITransactionRepository {
 
     async getByUser(id_user: number, filters: ITransactionFiltersDTO): Promise<ITransactionResponseDTO[]> {
         const where: WhereOptions = { id_user };
+        const include: any[] = [{model: UserModel, attributes: ["cpf"]}];
 
         if(filters.description) where.description = {[Op.like]: `%${filters.description}%`};
         if(filters.status) where.status = filters.status;
         if(filters.startDate && filters.endDate) where.transactionDate = {[Op.between]: [filters.startDate, filters.endDate]};
         
-        return await TransactionModel.findAll({ where: where });
+        return await TransactionModel.findAll({ where: where, include });
     }
 }

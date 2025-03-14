@@ -4,6 +4,7 @@ import { ITransactionResponseDTO } from "../../../useCases/TransactionUseCases/d
 export class TransactionMapper {
     static toDTO(transaction: TransactionModel): ITransactionResponseDTO {
         return {
+            id: transaction.id,
             description: transaction.description,
             transactionDate: transaction.transactionDate,
             points: transaction.points,

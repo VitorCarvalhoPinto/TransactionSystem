@@ -29,7 +29,7 @@ export class TransactionController {
             const { id } = req.params;
             const { status } = req.body;
 
-            if (!["approved", "denied"].includes(status)) {
+            if (!["pending", "approved", "denied"].includes(status)) {
                 return res.status(400).json({ error: "Invalid status" });
             }
 
