@@ -13,11 +13,11 @@ export class UserModel extends Model {
 }
 
 UserModel.init({
-    name: DataTypes.STRING,
-    cpf: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    ballance: DataTypes.DECIMAL,
+    name: { type: DataTypes.STRING, unique: 'compositeIndex' },
+    cpf: { type: DataTypes.STRING, unique: 'compositeIndex' },
+    email: { type: DataTypes.STRING, allowNull: false},
+    password: { type: DataTypes.STRING, allowNull: false },
+    ballance: { type: DataTypes.DECIMAL, allowNull: false },
   }, { 
     sequelize, 
     modelName: 'User', 
@@ -54,10 +54,10 @@ TransactionModel.init({
       allowNull: false,
       defaultValue: "pending",
     },
-}, {
-  sequelize,
-  modelName: 'Transaction',
-  timestamps: false,
+  }, {
+    sequelize,
+    modelName: 'Transaction',
+    timestamps: false,
 });
 
 //#endregion

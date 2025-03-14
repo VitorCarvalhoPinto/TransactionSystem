@@ -9,7 +9,6 @@ export class User {
     constructor(props: Omit<User, "id">, id?: number) {
       Object.assign(this, props);
       if (!id) {
-        this.ballance = 0;
         this.id = id
       }
     }

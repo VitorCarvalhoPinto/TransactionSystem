@@ -7,10 +7,14 @@ export class CreateUserUseCase {
     constructor(private userRepository: IUserRepository) {}
 
     async execute(data: ICreateUserDTO) {
-        const userExists = await this.userRepository.findByEmail(data.email);
+        const userExistsEmail = await this.userRepository.findByEmail(data.email);
+        const userExistsCPF = await this.userRepository.findByCPF(data.cpf);
         
-        if(userExists)
-            throw new Error("User already exists");
+        if(userExistsEmail)
+            throw new Error("User with email already exists");
+
+        if(userExistsCPF)
+            throw new Error("User with cpf already exists");
 
         const passwordHash = await bcrypt.hash(data.password, 10);
         const user = new User({...data, password: passwordHash});

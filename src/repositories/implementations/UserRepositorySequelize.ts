@@ -14,6 +14,11 @@ export class UserRepositorySequelize implements IUserRepository{
         return await models.User.findOne({ where: { cpf } });
     }
 
+    async getUserBallance(id_user: number): Promise<number> {
+        const actualBallance = await models.User.findAll({ where: { id: id_user }, attributes: ["ballance"], raw: true })
+        return Number(actualBallance[0].ballance);
+    }
+
     async save(user: Partial<User>): Promise<User> {
         const newUser = await models.User.create(user);
 

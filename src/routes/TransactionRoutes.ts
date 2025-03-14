@@ -14,8 +14,8 @@ import { upload } from "../middlewares/uploadMiddleware";
 // const upload = multer({ dest: "uploads/" });
 const TransactionRouter = Router();
 
-const transactionRepository = new TransactionRepositorySequelize();
 const userRepository = new UserRepositorySequelize();
+const transactionRepository = new TransactionRepositorySequelize(userRepository);
 
 //#endregion UseCases
 

@@ -6,6 +6,7 @@ import { IUserResponseDTO } from "../../useCases/UserUseCases/dtos/IUserResponse
 
 export interface IUserRepository {
     findByEmail(email: string): Promise<IUserResponseDTO>;
-    findByCPF(cpf: string): Promise<IUserResponseDTO>
+    findByCPF(cpf: string): Promise<IUserResponseDTO>;
+    getUserBallance(id_user: number): Promise<number>;
     save(user: User): Promise<User>;
 }
